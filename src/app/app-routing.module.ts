@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DragAndDropExampleComponent } from './homepage/drag-and-drop-example/drag-and-drop-example.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
+import { CustomHandlesModule } from './custom-handle/custom-handles/custom-handles.module';
 
-const routes: Routes = [{ path: '', component: HomepageComponent, children: [] }];
+const routes: Routes = [{ path: '', component: HomepageComponent, children: [] },
+{ path: 'drag', component: DragAndDropExampleComponent, children: [] },
+{ path: 'newdrag', redirectTo: 'custom-handles' }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), 
+    CustomHandlesModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
