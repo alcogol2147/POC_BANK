@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { CompactType, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
+import { CompactType, Draggable, GridsterConfig, GridsterItem, GridType, Resizable } from 'angular-gridster2';
 
+interface MySafe extends GridsterConfig {
+  draggable: Draggable;
+  resizable: Resizable;
+}
 @Component({
   selector: 'app-grid-layout-sample',
   templateUrl: './grid-layout-sample.component.html',
@@ -12,15 +16,17 @@ export class GridLayoutSampleComponent implements OnInit {
 
   constructor() { }
 
-  options!: GridsterConfig;
+  options!: MySafe;
   dashboard!: Array<GridsterItem>;
 
   ngOnInit(): void {
     this.options = {
-      gridType: GridType.Fit,
+      gridType: GridType.ScrollVertical,
       compactType: CompactType.None,
-      maxCols: 10,
-      maxRows: 10,
+      minCols: 4,
+      minRows: 3,
+      maxCols: 4,
+      maxRows: 100,
       pushItems: true,
       draggable: {
         enabled: true
@@ -44,7 +50,7 @@ export class GridLayoutSampleComponent implements OnInit {
     //   { cols: 1, rows: 1, y: 0, x: 6 }
     // ];
     this.dashboard = [
-      { cols: 2, rows: 1, y: 0, x: 0 }
+      { cols: 1, rows: 1, y: 0, x: 0, cardName: "graph" }
     ];
   }
 
@@ -63,5 +69,15 @@ export class GridLayoutSampleComponent implements OnInit {
   addItem(): void {
     this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1 });
   }
-
+  getPosition(): void {
+    this.dashboard.forEach((ele, index) => {
+      console.log("cardName : " + ele.cardName + " card X axial : " + ele.x +
+        " card Y axial : " + ele.y)
+    });
+  }
+  keepPosition(): void {
+    this.dashboard.forEach((ele, index) => {
+      console.log(JSON.stringify(ele));
+    });
+  }
 }
