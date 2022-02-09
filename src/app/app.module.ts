@@ -12,6 +12,7 @@ import { Testcard1Component } from './card/testcard1/testcard1.component';
 import { Testcard2Component } from './card/testcard2/testcard2.component';
 import { DragAndDropExampleComponent } from './homepage/drag-and-drop-example/drag-and-drop-example.component';
 import { Testcard3Component } from './card/testcard3/testcard3.component';
+import { NgxtableauComponent } from './new-solution-from-onside/ngxtableau/ngxtableau.component';
 
 
 @NgModule({

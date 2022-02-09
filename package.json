@@ -23,6 +23,9 @@
     "@angular/router": "~12.2.14",
     "@katoid/angular-grid-layout": "^1.2.0",
     "@swimlane/ngx-charts": "~17.0.0",
+    "angular-gridster2": "^12.1.1",
+    "ngx-markdown": "^12.0.1",
+    "ngx-tableau": "^1.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
