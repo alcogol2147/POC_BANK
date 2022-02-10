@@ -24,19 +24,41 @@
   <button mat-mini-fab (click)="addItem()" class="add-button cols-2">
     <mat-icon>add</mat-icon>
   </button>
-  <button mat-flat-button (click)="keepPosition()" color="primary" class="cols-2">
+  <button
+    mat-flat-button
+    (click)="keepPosition()"
+    color="primary"
+    class="cols-2"
+  >
     keep position
   </button>
-  <button mat-flat-button (click)="getPosition()" color="primary" class="cols-2">
+  <button
+    mat-flat-button
+    (click)="getPosition()"
+    color="primary"
+    class="cols-2"
+  >
     get position
   </button>
-  <mat-slide-toggle [(ngModel)]="options.draggable.enabled" (ngModelChange)="changedOptions()">switch dragable</mat-slide-toggle>
-  <mat-slide-toggle [(ngModel)]="options.resizable.enabled" (ngModelChange)="changedOptions()">switch resizable</mat-slide-toggle>
-  <mat-slide-toggle [(ngModel)]="options.draggable.ignoreContent" (ngModelChange)="changedOptions()">ignore Content</mat-slide-toggle>
+  <mat-slide-toggle
+    [(ngModel)]="options.draggable.enabled"
+    (ngModelChange)="changedOptions()"
+    >switch dragable</mat-slide-toggle
+  >
+  <mat-slide-toggle
+    [(ngModel)]="options.resizable.enabled"
+    (ngModelChange)="changedOptions()"
+    >switch resizable</mat-slide-toggle
+  >
+  <mat-slide-toggle
+    [(ngModel)]="options.draggable.ignoreContent"
+    (ngModelChange)="changedOptions()"
+    >ignore Content</mat-slide-toggle
+  >
 </div>
 
-<gridster [options]="options">
-  <gridster-item [item]="item" *ngFor="let item of dashboard">
+<gridster class="my-grid-ster" [options]="options">
+  <gridster-item class="my-gridster-item" [item]="item" *ngFor="let item of dashboard">
     <div class="button-holder">
       <button mat-icon-button mat-raised-button class="drag-handler">
         <mat-icon>open_with</mat-icon>
