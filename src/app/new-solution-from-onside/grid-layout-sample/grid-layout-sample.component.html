@@ -32,11 +32,15 @@
   </button>
   <mat-slide-toggle [(ngModel)]="options.draggable.enabled" (ngModelChange)="changedOptions()">switch dragable</mat-slide-toggle>
   <mat-slide-toggle [(ngModel)]="options.resizable.enabled" (ngModelChange)="changedOptions()">switch resizable</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="options.draggable.ignoreContent" (ngModelChange)="changedOptions()">ignore Content</mat-slide-toggle>
 </div>
 
 <gridster [options]="options">
   <gridster-item [item]="item" *ngFor="let item of dashboard">
     <div class="button-holder">
+      <button mat-icon-button mat-raised-button class="drag-handler">
+        <mat-icon>open_with</mat-icon>
+      </button>
       <!-- <button
         mat-mini-fab
         (mousedown)="removeItem($event, item)"
@@ -45,6 +49,6 @@
         <mat-icon>delete</mat-icon>
       </button> -->
     </div>
-    <app-ngxtableau></app-ngxtableau>
+    <app-ngxtableau *ngIf="item.cardName == 'graph'"></app-ngxtableau>
   </gridster-item>
 </gridster>

@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
@@ -30,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatSelectModule,
-    MatInputModule, MatCheckboxModule, MatSidenavModule, MatListModule,MatSlideToggleModule,
+    MatInputModule, MatCheckboxModule, MatSidenavModule, MatListModule,MatSlideToggleModule,MatCardModule,
     MarkdownModule.forRoot({ loader: HttpClient, markedOptions: { provide: MarkedOptions, useValue: { smartypants: true, breaks: true } } })
   ]
 })

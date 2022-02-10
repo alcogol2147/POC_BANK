@@ -1,3 +1,15 @@
 p {
   font-family: Lato;
 }
+.poc-container {
+  height: 320px;
+  overflow-y: auto;
+}
+.poc-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.poc-container::-webkit-scrollbar-thumb {
+  background-color: #428bca;
+  border-radius: 5px;
+}
