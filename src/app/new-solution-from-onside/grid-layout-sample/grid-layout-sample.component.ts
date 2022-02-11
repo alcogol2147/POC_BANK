@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CompactType, Draggable, GridsterConfig, GridsterItem, GridType, Resizable } from 'angular-gridster2';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface MySafe extends GridsterConfig {
   draggable: Draggable;
@@ -14,7 +15,7 @@ interface MySafe extends GridsterConfig {
 })
 export class GridLayoutSampleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   options!: MySafe;
   dashboard!: Array<GridsterItem>;
@@ -49,9 +50,17 @@ export class GridLayoutSampleComponent implements OnInit {
     //   { cols: 1, rows: 1, y: 3, x: 4 },
     //   { cols: 1, rows: 1, y: 0, x: 6 }
     // ];
-    this.dashboard = [
-      { cols: 1, rows: 1, y: 0, x: 0, cardName: "graph" }
-    ];
+    this.httpClient.post("/mockapi/PocBankInitial", {}, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+      })
+    }).subscribe((res) => {
+      this.dashboard = [
+        { cols: 1, rows: 1, y: 0, x: 0, cardName: "graph" }
+      ];
+    });
   }
 
   changedOptions(): void {

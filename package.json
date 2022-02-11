@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "install": "npm install && cd ./mock_api && npm install",
+    "api": "cd ./mock_api && npm start",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

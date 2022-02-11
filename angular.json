@@ -67,7 +67,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "POCBANK:build",
-            "sourceMap":true
+            "sourceMap":true,
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
