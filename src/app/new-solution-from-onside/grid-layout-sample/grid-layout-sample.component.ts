@@ -17,8 +17,8 @@ export class GridLayoutSampleComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
 
-  options!: MySafe;
-  dashboard!: Array<GridsterItem>;
+  public options!: MySafe;
+  public dashboard!: Array<GridsterItem>;
 
   ngOnInit(): void {
     this.options = {
@@ -50,6 +50,7 @@ export class GridLayoutSampleComponent implements OnInit {
     //   { cols: 1, rows: 1, y: 3, x: 4 },
     //   { cols: 1, rows: 1, y: 0, x: 6 }
     // ];
+    this.dashboard = [];
     this.httpClient.post("/mockapi/PocBankInitial", {}, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -57,9 +58,10 @@ export class GridLayoutSampleComponent implements OnInit {
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
       })
     }).subscribe((res) => {
-      this.dashboard = [
-        { cols: 1, rows: 1, y: 0, x: 0, cardName: "graph" }
-      ];
+      this.dashboard.push(res as GridsterItem);
+      if (this.options.api && this.options.api.optionsChanged) {
+        this.options.api.optionsChanged();
+      }
     });
   }
 
